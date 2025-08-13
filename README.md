@@ -1,3 +1,2 @@
 # py-asteroids
-# py-asteroids
-# py-asteroids
+Project for Boot.Dev
