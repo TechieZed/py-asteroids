@@ -15,6 +15,7 @@ def main():
             if event.type == pygame.QUIT:
                 return
         screen.fill(color=(0,0,0))
+        pygame.display.flip()
 
 
 if __name__ == "__main__":
