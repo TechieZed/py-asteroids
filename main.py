@@ -34,6 +34,7 @@ def main():
         
         # Fill screen color and draw player each frame   
         screen.fill(color=(0,0,0))
+        player.update(dt)
         player.draw(screen)
 
         # Manage delta time and game clock
