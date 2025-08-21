@@ -17,6 +17,10 @@ def main():
 
     x = SCREEN_WIDTH / 2
     y = SCREEN_HEIGHT / 2
+
+    updatable = pygame.sprite.Group()
+    drawable = pygame.sprite.Group()
+    Player.containers = (updatable, drawable)
     player = Player(x, y)
 
     # Print starting message to console
@@ -32,15 +36,16 @@ def main():
             if event.type == pygame.QUIT:
                 return
         
-        # Fill screen color and draw player each frame   
+        # Fill screen color and draw player each frame  
+        updatable.update(dt)
         screen.fill(color=(0,0,0))
-        player.update(dt)
-        player.draw(screen)
+        for player in drawable:
+            player.draw(screen)
 
         # Manage delta time and game clock
         pygame.display.flip()
         time.tick(60)
-        dt = time.tick()
+        dt = time.tick(60) / 1000
 
 
 if __name__ == "__main__":
