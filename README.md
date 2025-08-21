@@ -1,2 +1,3 @@
 # py-asteroids
-Project for Boot.Dev
+
+A simple Asteroids clone built as part of the boot.dev curriculum.
