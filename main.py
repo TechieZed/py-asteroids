@@ -48,6 +48,10 @@ def main():
         # Fill screen color and draw sprites each frame  
         updatable.update(dt)
         screen.fill(color=(0,0,0))
+        for asteroid in asteroids:
+            if asteroid.is_collision(player):
+                print("Game over!")
+                sys.exit()
         for sprite in drawable:
             sprite.draw(screen)
 
