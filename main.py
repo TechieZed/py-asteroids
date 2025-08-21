@@ -2,7 +2,8 @@
 # the open-source pygame library
 # throughout this file
 import pygame
-from constants import *
+import sys
+from constants import SCREEN_WIDTH, SCREEN_HEIGHT
 from player import *
 from asteroid import *
 from asteroidfield import *
@@ -37,7 +38,7 @@ def main():
     print(f"Screen width: {SCREEN_WIDTH}")
     print(f"Screen height: {SCREEN_HEIGHT}")
 
-    # Main game loop
+    # Main game loop per frame
     while True:
 
         # Quit the game when window is closed
@@ -45,13 +46,17 @@ def main():
             if event.type == pygame.QUIT:
                 return
         
-        # Fill screen color and draw sprites each frame  
+        # Fill screen color and update sprite positions
         updatable.update(dt)
         screen.fill(color=(0,0,0))
+        
+        # Detect collision and game failure
         for asteroid in asteroids:
             if asteroid.is_collision(player):
                 print("Game over!")
                 sys.exit()
+
+        # Draw sprites on screen
         for sprite in drawable:
             sprite.draw(screen)
 
